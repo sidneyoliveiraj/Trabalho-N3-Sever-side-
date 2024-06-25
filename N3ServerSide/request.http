@@ -1,0 +1,97 @@
+# Login 
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "username": "sidney",
+  "password": "123"
+}
+
+###
+
+# obter todos os proprietarios
+GET http://localhost:5000/proprietarios
+
+###
+
+# obter proprietário pelo CPF
+GET http://localhost:5000/proprietarios/12345678902
+
+###
+
+# criar um proprietario
+POST http://localhost:5000/proprietarios
+Content-Type: application/json
+
+{
+  "cpf": "12345678903",
+  "nome": "Sisney Cardoso",
+  "fone": "11888888888"
+}
+
+###
+
+# atualizar informações do proprietario
+PUT http://localhost:5000/proprietarios/12345678903
+Content-Type: application/json
+
+{
+  "nome": "Sisney Cardoso junior",
+  "fone": "11988888889"
+}
+
+###
+
+# deletar um propietario (pelo cpf)
+DELETE http://localhost:5000/proprietarios/12345678903
+
+###
+
+# obter todos os veiculos cadastrados
+GET http://localhost:5000/veiculos
+
+###
+
+# obeter veiculo por placa
+GET http://localhost:5000/veiculos/ABC1234
+
+###
+
+# criar um veiculo (precisa do login )
+POST http://localhost:5000/veiculos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpZG5leSIsImlhdCI6MTcxOTMzOTUwNSwiZXhwIjoxNzE5MzQzMTA1fQ.vVJ5DOQlTdkPQdLX_HTWrl-x88luicjSzaZ36rjKCyI 
+
+{
+  "placa_veiculo": "ABC1224",
+  "modelo_veiculo": "Toyota SW4",
+  "preco_veiculo": 50000,
+  "cpf_proprietario": "12345678903"
+}
+
+###
+
+# fazer atulização de um veiculo
+PUT http://localhost:5000/veiculos/ABC1234
+Content-Type: application/json
+
+{
+  "modelo_veiculo": "Toyota ",
+  "preco_veiculo": 13220000,
+  "cpf_proprietario": "12345678901"
+}
+
+###
+
+# deletar o veiculo
+DELETE http://localhost:5000/veiculos/ABC1234
+
+###
+
+# obter veiculos por proprietario ( cpf)
+GET http://localhost:5000/veiculos/proprietario/12345678901
+
+###
+
+# obter o veiculo por tipo (popular, luxo , super luxo)
+GET http://localhost:5000/veiculos/tipo/1
